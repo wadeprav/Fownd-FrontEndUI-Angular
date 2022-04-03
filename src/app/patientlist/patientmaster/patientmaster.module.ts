@@ -8,9 +8,6 @@ import { PatientmasterComponent } from './patientmaster.component';
 import { TopbarComponent } from 'src/app/bar/topbar/topbar.component';
 import { HeaderComponent } from 'src/app/bar/header/header.component';
 import { FooterComponent } from 'src/app/bar/footer/footer.component';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { SchedulerModule } from 'angular-calendar-scheduler';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -24,12 +21,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     RouterModule,
     FormsModule,
     HttpClientModule,
-    PatientmasterRoutingModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    }),
-    SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' })
+    PatientmasterRoutingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [PatientmasterComponent]
