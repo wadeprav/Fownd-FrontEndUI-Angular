@@ -37,6 +37,8 @@
               "src/styles.scss",
               "src/bootstrap.min.css",
               "src/bootstrap-icons.css",
+              "node_modules/@fullcalendar/common/main.css",
+              "node_modules/@fullcalendar/daygrid/main.css",
               "src/boxicons.min.css"
             ],
             "scripts": []
