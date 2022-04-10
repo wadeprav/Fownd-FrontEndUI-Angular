@@ -1,10 +1,23 @@
 <div class="wrapper">
     <div class="logo"> <img src="../assets/img/logo/logo.png" alt=""> </div>
     <br>
-    <form class="p-3 mt-3">
-        <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="text" name="userName" id="userName" placeholder="Username"> </div>
-        <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="password" name="password" id="pwd" placeholder="Password"> </div> 
-        <input type="button" class="btn mt-3" value="Login" (click)="redirectPatient()">
+    <form class="p-3 mt-3" name="login" #frmLogin="ngForm">
+        <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> 
+            <input type="text" name="uname" id="uname" #uname="ngModel" [(ngModel)]="username" placeholder="Username" required>
+        </div>
+        <div *ngIf="uname.touched && uname.invalid" class="error">
+            Username required..
+        </div>
+        <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> 
+            <input type="password" name="userpwd" #userpwd="ngModel" id="userpwd" [(ngModel)]="pwd" placeholder="Password" required>
+        </div>
+        <div *ngIf="userpwd.touched && userpwd.invalid" class="error">
+            Password required..
+        </div>
+        <input type="button" class="btn mt-3" value="Login" [disabled]="frmLogin.invalid" (click)="redirectPatient()">
     </form> <br>
-    <div class="text-center fs-6"> <a routerLink="#">Forget password?</a> or <a style="cursor: pointer;" (click)="redirectRegister()">Sign up</a> </div>
+    <div class="text-center fs-6"> 
+        <a routerLink="#">Forget password?</a> or 
+        <a style="cursor: pointer;" (click)="redirectRegister()">Sign up</a>
+    </div>
 </div>

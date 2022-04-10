@@ -1,9 +1,51 @@
 <div class="wrapper">
     <div class="logo"> <img src="../assets/img/logo/logo.png" alt=""> </div>
     <br>
-    <form class="p-3 mt-3">
-        <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="text" name="userName" id="userName" placeholder="Username"> </div>
-        <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="password" name="password" id="pwd" placeholder="Password"> </div> 
-        <input type="button" class="btn mt-3" value="Register">
+    <form class="p-3 mt-3 row" name="login" #frmLogin="ngForm">
+        <div class="col-md-6 form-group">
+            <div class="form-field d-flex align-items-center"> 
+                <input type="text" name="firstname" id="firstname" #firstname="ngModel" [(ngModel)]="fname" placeholder="First Name" required>
+            </div>
+            <div *ngIf="firstname.touched && firstname.invalid" class="error">
+                First Name required..
+            </div>
+        </div>
+        <div class="col-md-6 form-group">
+            <div class="form-field d-flex align-items-center"> 
+                <input type="text" name="lastname" id="lastname" #lastname="ngModel" [(ngModel)]="lname" placeholder="Last Name" required>
+            </div>
+            <div *ngIf="lastname.touched && lastname.invalid" class="error">
+                Last Name required..
+            </div>
+        </div>
+        <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> 
+            <textarea type="text" name="address" id="address" #address="ngModel" [(ngModel)]="addr" placeholder="Address" required></textarea>
+        </div>
+        <div *ngIf="address.touched && address.invalid" class="error">
+            Address required..
+        </div>
+        <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> 
+            <input type="text" name="pincode" id="pincode" #pincode="ngModel" [(ngModel)]="zip" placeholder="Zip" required>
+        </div>
+        <div *ngIf="pincode.touched && pincode.invalid" class="error">
+            Pin Code required..
+        </div>
+        <div class="col-md-6 form-group">
+            <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> 
+                <input type="text" name="uname" id="uname" #uname="ngModel" [(ngModel)]="username" placeholder="Username" required>
+            </div>
+            <div *ngIf="uname.touched && uname.invalid" class="error">
+                Username required..
+            </div>
+        </div>
+        <div class="col-md-6 form-group">
+            <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> 
+                <input type="password" name="userpwd" #userpwd="ngModel" id="userpwd" [(ngModel)]="pwd" placeholder="Password" required>
+            </div>
+            <div *ngIf="userpwd.touched && userpwd.invalid" class="error">
+                Password required..
+            </div>
+        </div>
+        <input type="button" class="btn mt-3" value="Register" [disabled]="frmLogin.invalid" (click)="register()">
     </form>
 </div>
