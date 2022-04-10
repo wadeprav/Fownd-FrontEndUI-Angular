@@ -7,6 +7,7 @@ import { PatientmasterComponent } from './patientlist/patientmaster/patientmaste
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'reg', component: RegisterComponent },
   { path: 'demo', component: PatientmasterComponent },
   {

@@ -46,6 +46,11 @@
                 Password required..
             </div>
         </div>
-        <input type="button" class="btn mt-3" value="Register" [disabled]="frmLogin.invalid" (click)="register()">
+        <div class="col-md-6 form-group">
+            <input type="button" class="btn mt-3" value="Register" [disabled]="frmLogin.invalid" (click)="register()">
+        </div>
+        <div class="col-md-6 form-group">
+            <input type="button" class="btn mt-3" value="Back" (click)="back()">
+        </div>
     </form>
 </div>

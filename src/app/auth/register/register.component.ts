@@ -28,4 +28,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['/', 'login']);
     });
   }
+  back() {
+    this.router.navigate(['/', 'login']);
+  }
 }
