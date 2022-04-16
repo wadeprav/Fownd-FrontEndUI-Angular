@@ -21,8 +21,9 @@ export class LoginComponent implements OnInit {
     this.loginModal.email = this.username;
     this.loginModal.password = this.pwd;
 
-    this.loginService.login(JSON.stringify(this.loginModal)).subscribe(res => {
-      this.router.navigate(['/', 'patient', 'home']);
+    this.loginService.login(this.loginModal).subscribe(res => {
+      console.log(res);
+      this.router.navigate(['/', 'patient', 'appointment']);
     });
   }
 

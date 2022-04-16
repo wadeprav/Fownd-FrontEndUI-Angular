@@ -25,10 +25,6 @@ export class AppointmentCalenderComponent implements OnInit {
     dayMaxEvents: true
   };
 
-  toggleWeekends() {
-    this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
-  }
-
   str = formatDate(new Date(), {
     month: 'long',
     year: 'numeric',
