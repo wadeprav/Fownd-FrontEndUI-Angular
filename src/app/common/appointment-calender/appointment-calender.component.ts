@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { formatDate, FullCalendarComponent, CalendarOptions } from '@fullcalendar/angular';
+import { formatDate, CalendarOptions } from '@fullcalendar/angular';
 
 @Component({
   selector: 'app-appointment-calender',
@@ -11,18 +11,21 @@ export class AppointmentCalenderComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  Events = [];
+
   calendarOptions: CalendarOptions = {
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      right: 'dayGridMonth'
     },
     initialView: 'dayGridMonth',
     weekends: true,
     editable: true,
     selectable: true,
     selectMirror: true,
-    dayMaxEvents: true
+    dayMaxEvents: true,
+    buttonIcons: false
   };
 
   str = formatDate(new Date(), {
@@ -31,7 +34,9 @@ export class AppointmentCalenderComponent implements OnInit {
     day: 'numeric'
   });
 
-  handleDateClick(arg: any) {
-    alert('date click! ' + arg.dateStr)
+  handleDateClick() {
+    console.log('date click! ');
+    // this.Events.push(arg.dateStr);
+    return 'arg';
   }
 }
