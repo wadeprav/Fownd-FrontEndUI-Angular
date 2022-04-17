@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private loginService: LoginService, private loginModal: LoginModel) { }
 
   ngOnInit(): void {
+    this.username = 'user@example.com';
+    this.pwd = 'pravin';
   }
 
   redirectPatient() {

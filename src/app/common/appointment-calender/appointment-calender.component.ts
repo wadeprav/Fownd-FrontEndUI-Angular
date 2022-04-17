@@ -22,6 +22,7 @@ export class AppointmentCalenderComponent implements OnInit {
     selectMirror: true,
     dayMaxEvents: true,
     buttonIcons: false,
+    eventAdd: this.handleDateClick(this),
     events: this.Events
   };
 
@@ -31,9 +32,8 @@ export class AppointmentCalenderComponent implements OnInit {
     this.Events.push({ title: 'event 1', date: '2022-04-01' }, { title: 'event 2', date: '2022-04-08' }, { title: 'event 3', date: '2022-04-12' });
   }
 
-  handleDateClick() {
-    console.log('date click! ');
-    // this.Events.push(arg.dateStr);
-    return 'arg';
+  handleDateClick(cal: any) {
+    console.log('date click! ', cal.options);
+    return cal;
   }
 }
