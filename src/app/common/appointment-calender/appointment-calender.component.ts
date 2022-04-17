@@ -7,11 +7,7 @@ import { formatDate, CalendarOptions } from '@fullcalendar/angular';
   styleUrls: ['./appointment-calender.component.scss']
 })
 export class AppointmentCalenderComponent implements OnInit {
-  constructor () {}
-  ngOnInit(): void {
-    
-  }
-  Events = [];
+  Events:any = [];
 
   calendarOptions: CalendarOptions = {
     headerToolbar: {
@@ -25,14 +21,15 @@ export class AppointmentCalenderComponent implements OnInit {
     selectable: true,
     selectMirror: true,
     dayMaxEvents: true,
-    buttonIcons: false
+    buttonIcons: false,
+    events: this.Events
   };
 
-  str = formatDate(new Date(), {
-    month: 'long',
-    year: 'numeric',
-    day: 'numeric'
-  });
+  constructor () {}
+
+  ngOnInit(): void {
+    this.Events.push({ title: 'event 1', date: '2022-04-01' }, { title: 'event 2', date: '2022-04-08' }, { title: 'event 3', date: '2022-04-12' });
+  }
 
   handleDateClick() {
     console.log('date click! ');

@@ -1,4 +1,10 @@
+$calendarBgColor: #fff;
+
 .container {
     width: 100%!important;
     height: 100%!important;
+}
+full-calendar {
+    background-color: $calendarBgColor;
+    text-align: center;
 }
