@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
     this.loginModal.password = this.pwd;
 
     this.loginService.login(this.loginModal).subscribe(res => {
-      console.log(res);
+      const token = JSON.parse(JSON.stringify(res));
+      sessionStorage.setItem('login_data', JSON.stringify(token.data));
+      localStorage.setItem('central_auth_token', token.token);
       this.router.navigate(['/', 'patient', 'appointment']);
     });
   }

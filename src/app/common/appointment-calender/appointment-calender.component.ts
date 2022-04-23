@@ -29,7 +29,12 @@ export class AppointmentCalenderComponent implements OnInit {
   constructor () {}
 
   ngOnInit(): void {
-    this.Events.push({ title: 'event 1', date: '2022-04-01' }, { title: 'event 2', date: '2022-04-08' }, { title: 'event 3', date: '2022-04-12' });
+    let data: any = sessionStorage.getItem('login_data')?.split('"');
+    if (data[19] === 'user@example.com') {
+      this.Events.push({ title: 'event 2', date: '2022-04-08' }, { title: 'event 3', date: '2022-04-12' });
+    } else {
+      this.Events.push({ title: 'event 1', date: '2022-04-01' });
+    }
   }
 
   handleDateClick(cal: any) {
